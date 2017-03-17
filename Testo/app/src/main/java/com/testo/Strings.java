@@ -10,4 +10,6 @@ public class Strings {
     public static String sharedPreferences_phone = "user_phone";
     public static String sharedPreferences_password = "user_password";
     public static String userTableName = "users";
+    public static String productsTableName = "products";
+    public static String dbName = "Testo";
 }

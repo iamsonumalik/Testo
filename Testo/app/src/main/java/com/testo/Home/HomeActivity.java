@@ -21,9 +21,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.testo.Home.Fragments.Home;
 import com.testo.Home.Fragments.Orders;
 import com.testo.R;
+import com.testo.Schema.Products;
 import com.testo.Strings;
 
 public class HomeActivity extends AppCompatActivity
@@ -49,10 +52,11 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         displaySelectedScreen(R.id.nav_home);
-        setLoginDetails(navigationView);
+        getLoginDetails(navigationView);
+
     }
 
-    private void setLoginDetails(NavigationView navigationView) {
+    private void getLoginDetails(NavigationView navigationView) {
         View header=navigationView.getHeaderView(0);
         SharedPreferences prefs = getSharedPreferences(Strings.sharedPreferencesSetting, 0);
         ((TextView) header.findViewById(R.id.userName)).setText(prefs.getString(Strings.sharedPreferences_name,""));
@@ -125,6 +129,7 @@ public class HomeActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
                     alertDialog.dismiss();
+                    getSharedPreferences(Strings.sharedPreferencesSetting,0).edit().clear().commit();
                     finish();
                 }
             });

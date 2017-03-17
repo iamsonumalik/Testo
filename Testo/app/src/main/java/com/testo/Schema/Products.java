@@ -35,4 +35,28 @@ public class Products {
     public void setAvailableProducts(int availableProducts) {
         this.availableProducts = availableProducts;
     }
+
+    public int getAvailableProducts() {
+        return availableProducts;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getProductManufacturer() {
+        return productManufacturer;
+    }
 }

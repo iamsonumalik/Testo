@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,13 +24,18 @@ import com.testo.Strings;
 
 public class Login extends Fragment {
 
+    private View loginButton;
+    private View progressBar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view  = inflater.inflate(R.layout.fragment_login, container, false);
         final EditText loginphoneNumber = (EditText) view.findViewById(R.id.loginphoneNumber);
         final EditText loginpassword = (EditText) view.findViewById(R.id.loginpassword);
-        view.findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
+        loginButton = view.findViewById(R.id.login);
+        progressBar = view.findViewById(R.id.progressBarLogin);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (loginphoneNumber.getText().length() != 10){
@@ -60,11 +64,11 @@ public class Login extends Fragment {
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (!snapshot.child(Strings.userTableName).hasChild(phone)) {
+                if (!snapshot.child(Strings.dbName).child(Strings.userTableName).hasChild(phone)) {
                     // run some code
                     Snackbar.make(getView(),"This phone number is not Registered.", Snackbar.LENGTH_SHORT).show();
                 }else {
-                    Users users = snapshot.child(Strings.userTableName).child(phone).getValue(Users.class);
+                    Users users = snapshot.child(Strings.dbName).child(Strings.userTableName).child(phone).getValue(Users.class);
                     if (users.getPhoneNumber().equals(phone) && users.getPassword().equals(password)) {
                         SharedPreferences.Editor editor = getActivity().getSharedPreferences(Strings.sharedPreferencesSetting, 0).edit();
                         editor.putString(Strings.sharedPreferences_name, users.getName());
@@ -79,10 +83,13 @@ public class Login extends Fragment {
                     }
 
                 }
+                toggleProgressBar(false);
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                toggleProgressBar(false);
 
             }
         });
@@ -90,6 +97,18 @@ public class Login extends Fragment {
         users.setName("test");
         users.setPassword("test");
         users.setPhoneNumber("test");
-        mDatabase.child(Strings.userTableName).child("test").setValue(users);
+        mDatabase.child(Strings.dbName).child(Strings.userTableName).child("test").setValue(users);
+        toggleProgressBar(true);
+    }
+
+    private void toggleProgressBar(boolean show) {
+        if (show){
+            loginButton.setClickable(false);
+            progressBar.setVisibility(View.VISIBLE);
+        }else {
+
+            loginButton.setClickable(true);
+            progressBar.setVisibility(View.GONE);
+        }
     }
 }
