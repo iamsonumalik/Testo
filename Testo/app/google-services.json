@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "492900670070",
+    "firebase_url": "https://testo-1ca66.firebaseio.com",
+    "project_id": "testo-1ca66",
+    "storage_bucket": "testo-1ca66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492900670070:android:a4d1d6ccc9c5e24a",
+        "android_client_info": {
+          "package_name": "com.testo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492900670070-4iehl6s4b1vj6am8drk07ccc31p4v2if.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNxAkfhPPk330-5fMs4EhybH0fT5DBwqg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
