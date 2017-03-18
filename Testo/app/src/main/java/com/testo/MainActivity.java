@@ -16,22 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
-        saveProducts("00000008","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000009","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000010","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000011","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000012","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000013","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000014","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000015","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000016","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000017","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000018","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000019","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000020","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000021","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000022","Fossil Q Watch","Fossil","Wrist Watch","12999",15);*/
+
+        //saveProducts("00000021","Fossil Q Watch","Fossil","Wrist Watch","12999",100);
+        //saveProducts("00000022","Fossil Q Watch","Fossil","Wrist Watch","12999",100);*/
         String userPhoneNumber = getSharedPreferences(Strings.sharedPreferencesSetting, 0).getString(Strings.sharedPreferences_phone, "");
         if (userPhoneNumber.isEmpty())
             startActivity(new Intent(MainActivity.this,Auth.class));

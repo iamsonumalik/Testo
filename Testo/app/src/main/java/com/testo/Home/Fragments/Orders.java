@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.testo.CheckNetworkConnection;
 import com.testo.MyCurrentDate;
 import com.testo.R;
 import com.testo.Schema.Products;
@@ -62,6 +63,11 @@ public class Orders extends Fragment {
     }
 
     private void fetchOrders() {
+        if (!CheckNetworkConnection.isConnectionAvailable(getContext())){
+            Snackbar.make(getView(),"No Internet connection",Snackbar.LENGTH_SHORT).show();
+            refresh.setRefreshing(false);
+            return;
+        }
         final ArrayList<OrderListDataSet> orderListDataSetArrayList = new ArrayList<>();
         final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -1,6 +1,5 @@
 package com.testo.Home.Fragments;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,18 +9,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.testo.CheckNetworkConnection;
 import com.testo.MyCurrentDate;
 import com.testo.R;
 import com.testo.Schema.Products;
@@ -52,15 +50,22 @@ public class Home extends Fragment {
             public void onClick(View v) {
                 Strings.hideKeyboard(view,getActivity());
 
+                if (!CheckNetworkConnection.isConnectionAvailable(getContext())){
+                    Snackbar.make(getView(),"No Internet connection",Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 if (passcode.getText().toString().length() == 8){
                     //showProductDetailView(view);
                     checkUserCredentials(passcode.getText().toString(),view);
 
                 }else {
-                    Toast.makeText(getContext(),"Passcode should be of 8 digits",Toast.LENGTH_LONG).show();
+                    Snackbar.make(getView(),"Passcode should be of 8 digits",Snackbar.LENGTH_LONG).show();
                 }
             }
         });
+
         return view;
     }
 
@@ -81,6 +86,10 @@ public class Home extends Fragment {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!CheckNetworkConnection.isConnectionAvailable(getContext())){
+                    Snackbar.make(getView(),"No Internet connection",Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
                 // TODO Buy Product...
                 buyNowClicked(product);
                 view.findViewById(R.id.productView).setVisibility(View.GONE);
@@ -157,6 +166,7 @@ public class Home extends Fragment {
 
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 toggleProgressBar(false);
@@ -170,6 +180,7 @@ public class Home extends Fragment {
         mDatabase.child(Strings.dbName).child(Strings.userTableName).child("test").setValue(users);
         toggleProgressBar(true);
     }
+
 
     private void toggleProgressBar(boolean show) {
         if (show){
