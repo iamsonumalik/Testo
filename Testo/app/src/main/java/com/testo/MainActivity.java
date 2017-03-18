@@ -16,13 +16,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        saveProducts("00000001","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
-        saveProducts("00000002","Moto G 4","Moto","Smart phones","15000",10);
-        saveProducts("00000003","Fossil marshell Watch","Fossil","Wrist Watch","21999",15);
-        saveProducts("00000004","Vivo phone","Vivo","Smart phones","2999",15);
-        saveProducts("00000005","Oppo","Oppo","Smart phones","12999",15);
-        saveProducts("00000006","iphone 6s plus","apple","Smart phones","72999",15);
-        saveProducts("00000007","iphone 5","apple","Smart phones","21999",15);
         /*
         saveProducts("00000008","Fossil Q Watch","Fossil","Wrist Watch","12999",15);
         saveProducts("00000009","Fossil Q Watch","Fossil","Wrist Watch","12999",15);

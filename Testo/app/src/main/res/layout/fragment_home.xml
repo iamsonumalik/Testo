@@ -36,6 +36,20 @@
            android:id="@+id/submit"
            android:text="SUBMIT"
            android:layout_height="wrap_content" />
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="35dp">
+
+       <ProgressBar
+           style="?android:attr/progressBarStyleSmall"
+           android:layout_width="wrap_content"
+           android:visibility="gone"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:id="@+id/progressBarHome" />
+       </RelativeLayout>
    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -66,16 +80,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Product Name : "
+                        android:textSize="15sp"
                         android:textColor="@color/colorAccent"
                         android:maxLines="1" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:text="vygh xcakwbcv uvwy g   ew u euy u u  u uyu  grurruu3rg ur  u uf ueqafb duhaw"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000"
-                        android:textSize="19dp"
+                        android:id="@+id/productName"
+                        android:textSize="15sp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -89,6 +104,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="15sp"
                         android:text="Manufacturer : "
                         android:textColor="@color/colorAccent"
                         android:maxLines="1" />
@@ -96,10 +112,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:text="vygh xcakwbcv uvwy g   ew u euy u u  u uyu  grurruu3rg ur  u uf ueqafb duhaw"
+                        android:id="@+id/manufacturer"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000"
-                        android:textSize="19dp"
+                        android:textSize="15sp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -113,6 +129,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="15sp"
                         android:text="Category : "
                         android:textColor="@color/colorAccent"
                         android:maxLines="1" />
@@ -120,10 +137,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:text="vygh xcakwbcv uvwy g   ew u euy u u  u uyu  grurruu3rg ur  u uf ueqafb duhaw"
+                        android:id="@+id/category"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000"
-                        android:textSize="19dp"
+                        android:textSize="15sp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -138,19 +155,44 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price : "
+                        android:textSize="15sp"
                         android:textColor="@color/colorAccent"
                         android:maxLines="1" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
-                        android:text="vygh xcakwbcv uvwy g   ew u euy u u  u uyu  grurruu3rg ur  u uf ueqafb duhaw"
+                        android:id="@+id/price"
                         android:layout_marginBottom="10dp"
                         android:textColor="#000"
-                        android:textSize="19dp"
+                        android:textSize="15sp"
                         />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Availability : "
+                        android:textSize="15sp"
+                        android:textColor="@color/colorAccent"
+                        android:maxLines="1" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:id="@+id/availability"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        />
+                </LinearLayout>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
         <LinearLayout
@@ -165,9 +207,10 @@
             <android.support.v7.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:text="Not NOW"
-                android:textSize="21dp"
+                android:textSize="15sp"
                 android:id="@+id/notNow"
                 android:textColor="#000"
+                android:textStyle="italic"
                 android:layout_weight="50"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="10dp"
@@ -177,7 +220,8 @@
                 android:layout_width="match_parent"
                 android:text="BUY NOW"
                 android:id="@+id/buyNow"
-                android:textSize="21dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/colorAccent"

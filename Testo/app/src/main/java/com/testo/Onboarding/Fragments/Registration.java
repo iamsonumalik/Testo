@@ -43,6 +43,10 @@ public class Registration extends Fragment {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (registrationphoneNumber.getText().toString().contains(" ")){
+                    Snackbar.make(getView(),"Phone number with space not allowed.", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
                 if (registrationphoneNumber.getText().length() !=10){
                     Snackbar.make(getView(),"Phone Number Should be of 10 digits.", Snackbar.LENGTH_SHORT).show();
                     return;

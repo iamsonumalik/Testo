@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +26,7 @@ import com.testo.Strings;
 public class Login extends Fragment {
 
     private View loginButton;
-    private View progressBar;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,7 +35,7 @@ public class Login extends Fragment {
         final EditText loginphoneNumber = (EditText) view.findViewById(R.id.loginphoneNumber);
         final EditText loginpassword = (EditText) view.findViewById(R.id.loginpassword);
         loginButton = view.findViewById(R.id.login);
-        progressBar = view.findViewById(R.id.progressBarLogin);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarLogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,7 @@ public class Login extends Fragment {
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+
                 if (!snapshot.child(Strings.dbName).child(Strings.userTableName).hasChild(phone)) {
                     // run some code
                     Snackbar.make(getView(),"This phone number is not Registered.", Snackbar.LENGTH_SHORT).show();

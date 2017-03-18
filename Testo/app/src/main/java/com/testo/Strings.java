@@ -12,4 +12,5 @@ public class Strings {
     public static String userTableName = "users";
     public static String productsTableName = "products";
     public static String dbName = "Testo";
+    public static String orderstableNames = "orders";
 }
