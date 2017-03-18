@@ -61,7 +61,7 @@ public class Home extends Fragment {
                     checkUserCredentials(passcode.getText().toString(),view);
 
                 }else {
-                    Snackbar.make(getView(),"Passcode should be of 8 digits",Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(getView(),"Product Code should be of 8 digits",Snackbar.LENGTH_LONG).show();
                 }
             }
         });
@@ -94,7 +94,7 @@ public class Home extends Fragment {
                 buyNowClicked(product);
                 view.findViewById(R.id.productView).setVisibility(View.GONE);
                 getActivity().setTitle("Testo");
-                Snackbar.make(getView(),"Order places you can check your order in Orders.",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(getView(),"Order placed, you can check your order in Orders.",Snackbar.LENGTH_SHORT).show();
             }
         });
 

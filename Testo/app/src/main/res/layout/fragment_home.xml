@@ -24,7 +24,7 @@
                android:id="@+id/passcode"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:hint="Enter 8 digit Passcode"
+               android:hint="Enter 8 digit Product Code"
                android:inputType="number"
                android:maxLength="8"
                android:maxLines="1" />
