@@ -31,14 +31,22 @@ public class Login extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.fragment_login, container, false);
+        final View view  = inflater.inflate(R.layout.fragment_login, container, false);
         final EditText loginphoneNumber = (EditText) view.findViewById(R.id.loginphoneNumber);
         final EditText loginpassword = (EditText) view.findViewById(R.id.loginpassword);
         loginButton = view.findViewById(R.id.login);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBarLogin);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+
                 if (loginphoneNumber.getText().length() != 10){
                     Snackbar.make(getView(),"Phone Number Should be of 10 digits.", Snackbar.LENGTH_SHORT).show();
                     return;

@@ -34,15 +34,23 @@ public class Registration extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view  = inflater.inflate(R.layout.fragment_registration, container, false);
+        final View view  = inflater.inflate(R.layout.fragment_registration, container, false);
         final EditText registrationphoneNumber = (EditText) view.findViewById(R.id.registrationphoneNumber);
         final EditText registrationpassword = (EditText) view.findViewById(R.id.registrationpassword);
         final EditText registrationName = (EditText) view.findViewById(R.id.registrationName);
         registerButton = view.findViewById(R.id.register);
         progressBar = view.findViewById(R.id.progressBarLogin);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+            }
+        });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+
                 if (registrationphoneNumber.getText().toString().contains(" ")){
                     Snackbar.make(getView(),"Phone number with space not allowed.", Snackbar.LENGTH_SHORT).show();
                     return;

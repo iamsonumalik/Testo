@@ -1,5 +1,6 @@
 package com.testo.Home.Fragments;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -39,9 +41,17 @@ public class Home extends Fragment {
         final EditText passcode = (EditText) view.findViewById(R.id.passcode);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBarHome);
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+            }
+        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Strings.hideKeyboard(view,getActivity());
+
                 if (passcode.getText().toString().length() == 8){
                     //showProductDetailView(view);
                     checkUserCredentials(passcode.getText().toString(),view);
